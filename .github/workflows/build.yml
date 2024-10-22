@@ -57,9 +57,7 @@ jobs:
           git checkout "${ref}"
 
           pushd devel/scripts
-          latest="\$(curl -s 'https://api.github.com/repos/adonis0147/devel-env/releases/latest' | \
-            python -c "import json; import sys; print(json.load(sys.stdin)['tag_name'])")"
-          curl -L "https://github.com/adonis0147/devel-env/releases/download/\${latest}/install_toolchain_x86_64.sh" -o install_toolchain.sh
+          curl -L "https://api.cirrus-ci.com/v1/artifact/task/5777085698932736/binary/output/install_toolchain_x86_64.sh" -o install_toolchain.sh
           chmod a+x install_toolchain.sh
           popd
 
